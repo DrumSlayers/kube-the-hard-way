@@ -5,10 +5,12 @@
       runtime_type = "io.containerd.runtime.v1.linux"
       runtime_engine = "/usr/local/bin/runc"
       runtime_root = ""
-  [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
-    SystemdCgroup = true
+    [plugins.cri.containerd.runtimes.runc.options]
+      SystemdCgroup = true
+    [plugins.cri.containerd.runtimes.runc]
+      runtime_type = "io.containerd.runc.v2"
 [plugins.cri.cni]
-#conf_template="/etc/cni/net.d/10-bridge.conflist"
+#conf_template="/etc/cni/net.d/10-bridge.conf"
 conf_dir = "/etc/cni/net.d"
 bin_dir = "/opt/cni/bin"
-max_conf_num="2"
+max_conf_num= 2

@@ -30,7 +30,7 @@ EOF
     -ca=ca.pem \
     -ca-key=ca-key.pem \
     -config=ca-config.json \
-    -hostname=${INSTANCE},${IP}, \
+    -hostname=${INSTANCE},${IP} \
     -profile=kubernetes \
     ${INSTANCE}-csr.json | cfssljson -bare ${INSTANCE}
 done
