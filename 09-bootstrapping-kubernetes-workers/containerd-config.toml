@@ -1,0 +1,14 @@
+[plugins]
+  [plugins.cri.containerd]
+    snapshotter = "overlayfs"
+    [plugins.cri.containerd.default_runtime]
+      runtime_type = "io.containerd.runtime.v1.linux"
+      runtime_engine = "/usr/local/bin/runc"
+      runtime_root = ""
+  [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
+    SystemdCgroup = true
+[plugins.cri.cni]
+#conf_template="/etc/cni/net.d/10-bridge.conflist"
+conf_dir = "/etc/cni/net.d"
+bin_dir = "/opt/cni/bin"
+max_conf_num="2"
